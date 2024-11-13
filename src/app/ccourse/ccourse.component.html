@@ -1,0 +1,32 @@
+<div class="container content">
+<h1>{{title}}</h1>
+<form class="row g-3">
+    <div class="col-md-6">
+        <label for="name" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" nombre="name" #tname>
+    </div>
+    <div class="col-md-6">
+        <label for="edad" class="form-label">Edad:</label>
+        <input type="text" class="form-control" nombre="age" #tage>
+    </div>
+    <div class="col-md-6">
+        <label for="dir" class="form-label">Dirección:</label>
+        <input type="text" class="form-control" nombre="dir" [(ngModel)] = "dir">
+        <p>{{dir}}</p>
+    </div>
+    <div class="col-md-6">
+        <label for="courses" class="form-label">Nombre:</label>
+        <select class="form-select" name="courses" id="courses" #tselect>
+          <option selected>Seleccionar un curso....</option>
+          <option [value] ="item" *ngFor="let item of getCourses()">{{item}}</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <button type="button" class="btn btn-info" (click)="getRegisterCourse(tname.value, tage.value,tselect.value)">Inscribir</button>
+      </div>
+      <div>
+        {{getResponse()}}
+      </div>
+</form>
+
+</div>
